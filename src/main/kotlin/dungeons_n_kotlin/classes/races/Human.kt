@@ -1,9 +1,8 @@
 package dungeons_n_kotlin.classes.races
 
-import dungeons_n_kotlin.interfaces.attributes.AttributesBonus
+import dungeons_n_kotlin.classes.attributes.AttributesBonus
 import dungeons_n_kotlin.interfaces.breed.Breed
 
 class Human(
-    override var name: String,
-    override var attributesBonus: AttributesBonus?
+    override var attributesBonus: AttributesBonus
 ) : Breed
