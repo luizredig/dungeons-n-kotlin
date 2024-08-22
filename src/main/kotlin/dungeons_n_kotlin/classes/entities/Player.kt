@@ -1,16 +1,19 @@
 package dungeons_n_kotlin.classes.entities
 
-import dungeons_n_kotlin.interfaces.classes.Class
+import dungeons_n_kotlin.classes.attributes.Attributes
 import dungeons_n_kotlin.interfaces.breed.Breed
-import dungeons_n_kotlin.interfaces.subclasses.Subclass
-import dungeons_n_kotlin.interfaces.subraces.Subrace
 
 class Player(
-    private var name: String,
-    private var breed: Breed,
-    private var subrace: Subrace?,
-    private var `class`: Class,
-    private var subclass: Subclass?
+    var name: String,
+    var breed: Breed,
+    var attributes: Attributes
 ) {
-    private var level: Int = 1;
+    fun addAttributesBonus() {
+        this.attributes.strength += this.breed.attributesBonus.strength
+        this.attributes.dexterity += this.breed.attributesBonus.dexterity
+        this.attributes.constitution += this.breed.attributesBonus.constitution
+        this.attributes.intelligence += this.breed.attributesBonus.intelligence
+        this.attributes.wisdom += this.breed.attributesBonus.wisdom
+        this.attributes.charisma += this.breed.attributesBonus.charisma
+    }
 }
