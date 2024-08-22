@@ -1,8 +1,8 @@
-package dungeons_n_kotlin.interfaces.races
+package dungeons_n_kotlin.interfaces.breed
 
 import dungeons_n_kotlin.interfaces.attributes.AttributesBonus
 
-interface Race {
+interface Breed {
     var name: String
     var attributesBonus: AttributesBonus?
 }
