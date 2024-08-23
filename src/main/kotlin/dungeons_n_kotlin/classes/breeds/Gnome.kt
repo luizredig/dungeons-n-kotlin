@@ -2,7 +2,7 @@ package dungeons_n_kotlin.classes.breeds
 
 import dungeons_n_kotlin.interfaces.breed.IBreed
 
-class Gnome () : IBreed {
+class Gnome : IBreed {
     override fun getStrength(): Int {
         return 0
     }

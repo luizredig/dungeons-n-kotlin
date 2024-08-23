@@ -2,8 +2,7 @@ package dungeons_n_kotlin.classes.breeds
 
 import dungeons_n_kotlin.interfaces.breed.IBreed
 
-class Halfling (
-) : IBreed {
+class Halfling : IBreed {
     override fun getStrength(): Int {
         return 0
     }

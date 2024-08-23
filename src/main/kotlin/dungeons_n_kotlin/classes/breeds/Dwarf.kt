@@ -2,7 +2,7 @@ package dungeons_n_kotlin.classes.breeds
 
 import dungeons_n_kotlin.interfaces.breed.IBreed
 
-class Dwarf () : IBreed {
+class Dwarf : IBreed {
     override fun getStrength(): Int {
         return 1
     }
@@ -12,7 +12,7 @@ class Dwarf () : IBreed {
     }
 
     override fun getConstitution(): Int {
-       return 2
+        return 2
     }
 
     override fun getIntelligence(): Int {

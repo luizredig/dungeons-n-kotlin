@@ -4,7 +4,6 @@ import dungeons_n_kotlin.classes.attributes.Attributes
 import dungeons_n_kotlin.interfaces.breed.IBreed
 
 class Character(var name: String, var breed: IBreed, var attributes: Attributes) {
-
     init {
         addAttributesBonus()
     }
