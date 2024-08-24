@@ -2,17 +2,17 @@ package dungeons_n_kotlin.classes.breeds
 
 import dungeons_n_kotlin.interfaces.breed.IBreed
 
-class Dwarf : IBreed {
+class ElfDrow : IBreed {
     override fun getStrength(): Int {
-        return 1
-    }
-
-    override fun getDexterity(): Int {
         return 0
     }
 
-    override fun getConstitution(): Int {
+    override fun getDexterity(): Int {
         return 2
+    }
+
+    override fun getConstitution(): Int {
+        return 0
     }
 
     override fun getIntelligence(): Int {
@@ -24,7 +24,7 @@ class Dwarf : IBreed {
     }
 
     override fun getCharisma(): Int {
-        return 0
+        return 1
     }
 
 }
