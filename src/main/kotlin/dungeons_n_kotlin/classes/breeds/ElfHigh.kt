@@ -2,7 +2,7 @@ package dungeons_n_kotlin.classes.breeds
 
 import dungeons_n_kotlin.interfaces.breed.IBreed
 
-class Elf : IBreed {
+class ElfHigh : IBreed {
     override fun getStrength(): Int {
         return 0
     }
