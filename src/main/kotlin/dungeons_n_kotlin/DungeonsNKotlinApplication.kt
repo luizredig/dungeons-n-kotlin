@@ -196,10 +196,12 @@ fun createCharacter(): Character {
         attributesArray.forEachIndexed { index, attribute ->
             println("[${index + 1}] - $attribute")
         }
+        println()
 
-        println()
-        println("[0] - Confirm")
-        println()
+        if (availablePoints == 0) {
+            println("[0] - Confirm")
+            println()
+        }
 
         var selectedAttribute: String
 
@@ -231,7 +233,19 @@ fun createCharacter(): Character {
                 selectedAttribute = "charisma"
             }
 
-            else -> break
+            0 -> {
+                if (availablePoints == 0) {
+                    break
+                }
+
+                println("You still have points to distribute.")
+                continue
+            }
+
+            else -> {
+                println("You still have points to distribute.")
+                continue
+            }
         }
 
         val property = Attributes::class.memberProperties.find { it.name == selectedAttribute }
@@ -256,8 +270,7 @@ fun createCharacter(): Character {
                             if (availablePoints > 0 && (availablePoints - cost) >= 0) {
                                 availablePoints -= cost
                                 mutableProperty.set(character.attributes, mutableProperty.get(character.attributes) + 1)
-                            }
-                            else {
+                            } else {
                                 println("You do not have enough points remaining.")
                                 println()
                             }
