@@ -189,7 +189,7 @@ fun createCharacter(): Character {
             println("[${index + 1}] - $attribute")
         }
 
-        println("Enter to exit.")
+        println("[0] to exit.")
 
         var selectedAttribute: String
 
