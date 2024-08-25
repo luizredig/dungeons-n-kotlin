@@ -12,7 +12,7 @@
 	<artifactId>dungeons-n-kotlin</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>dungeons-n-kotlin</name>
-	<description>Dungeons-n-Kotlin is a academic project developed using Kotlin. The project showcases key concepts in Kotlin programming, including object-oriented design and functional programming.</description>
+	<description>Dungeons-n-Kotlin is an academic project developed using Kotlin. The project showcases key concepts in Kotlin programming, including object-oriented design and functional programming.</description>
 	<url/>
 	<licenses>
 		<license/>
