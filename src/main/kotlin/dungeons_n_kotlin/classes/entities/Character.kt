@@ -11,7 +11,7 @@ class Character {
 
     lateinit var attributes: Attributes
 
-    private var healthPoints: Int = 10
+    var healthPoints: Int = 10
 
     fun listAttributes(): String {
         return """

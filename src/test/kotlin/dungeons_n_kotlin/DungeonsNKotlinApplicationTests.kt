@@ -74,4 +74,10 @@ class DungeonsNKotlinApplicationTests {
 
         assertEquals(2, AttributesModifier.calculateAttributeModifier(attributeValue))
     }
+
+    @Test
+    fun `ensure character's initial health points are 10`() {
+        val hp = characterTester.healthPoints
+        assertEquals(10, hp)
+    }
 }
