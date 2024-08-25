@@ -11,6 +11,8 @@ class Character {
 
     lateinit var attributes: Attributes
 
+    private var healthPoints: Int = 10
+
     fun listAttributes(): String {
         return """
             Name: $name
@@ -18,12 +20,13 @@ class Character {
             
             VALUE | BREED BONUS | MODIFIER
             
-            Strength: ${attributes.strength}  +${breed.getStrength()} +${AttributesModifier.calculateAttributeModifier(attributes.strength)}
-            Dexterity: ${attributes.dexterity}  +${breed.getDexterity()} +${AttributesModifier.calculateAttributeModifier(attributes.dexterity)}
-            Constitution: ${attributes.constitution}  +${breed.getConstitution()} +${AttributesModifier.calculateAttributeModifier(attributes.constitution)}
-            Intelligence: ${attributes.intelligence}  +${breed.getIntelligence()} +${AttributesModifier.calculateAttributeModifier(attributes.intelligence)}
-            Wisdom: ${attributes.wisdom}  +${breed.getWisdom()} +${AttributesModifier.calculateAttributeModifier(attributes.wisdom)}
-            Charisma: ${attributes.charisma}  +${breed.getCharisma()} +${AttributesModifier.calculateAttributeModifier(attributes.charisma)}
+            Health Points: $healthPoints +(${AttributesModifier.calculateAttributeModifier(attributes.constitution)})
+            Strength: ${attributes.strength}  +(${breed.getStrength()}) +(${AttributesModifier.calculateAttributeModifier(attributes.strength)})
+            Dexterity: ${attributes.dexterity}  +(${breed.getDexterity()}) +(${AttributesModifier.calculateAttributeModifier(attributes.dexterity)})
+            Constitution: ${attributes.constitution}  +(${breed.getConstitution()}) +(${AttributesModifier.calculateAttributeModifier(attributes.constitution)})
+            Intelligence: ${attributes.intelligence}  +(${breed.getIntelligence()}) +(${AttributesModifier.calculateAttributeModifier(attributes.intelligence)})
+            Wisdom: ${attributes.wisdom}  +(${breed.getWisdom()}) +(${AttributesModifier.calculateAttributeModifier(attributes.wisdom)})
+            Charisma: ${attributes.charisma}  +(${breed.getCharisma()}) +(${AttributesModifier.calculateAttributeModifier(attributes.charisma)})
         """.trimIndent()
     }
 }
