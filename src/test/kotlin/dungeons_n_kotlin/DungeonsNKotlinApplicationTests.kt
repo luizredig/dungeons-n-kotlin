@@ -38,4 +38,40 @@ class DungeonsNKotlinApplicationTests {
 
         assertEquals(2, AttributesModifier.calculateAttributeCost(attributeValue))
     }
+
+    @Test
+    fun `ensure attribute modifiers calculation is correct`() {
+        characterTester.attributes = Attributes()
+        var attributeValue = characterTester.attributes.strength
+
+        assertEquals(-1, AttributesModifier.calculateAttributeModifier(attributeValue))
+
+        attributeValue += 1
+
+        assertEquals(-1, AttributesModifier.calculateAttributeModifier(attributeValue))
+
+        attributeValue += 1
+
+        assertEquals(0, AttributesModifier.calculateAttributeModifier(attributeValue))
+
+        attributeValue += 1
+
+        assertEquals(0, AttributesModifier.calculateAttributeModifier(attributeValue))
+
+        attributeValue += 1
+
+        assertEquals(1, AttributesModifier.calculateAttributeModifier(attributeValue))
+
+        attributeValue += 1
+
+        assertEquals(1, AttributesModifier.calculateAttributeModifier(attributeValue))
+
+        attributeValue += 1
+
+        assertEquals(2, AttributesModifier.calculateAttributeModifier(attributeValue))
+
+        attributeValue += 1
+
+        assertEquals(2, AttributesModifier.calculateAttributeModifier(attributeValue))
+    }
 }
