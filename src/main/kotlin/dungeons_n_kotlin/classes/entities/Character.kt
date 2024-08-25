@@ -1,31 +1,38 @@
 package dungeons_n_kotlin.classes.entities
 
 import dungeons_n_kotlin.classes.attributes.Attributes
+import dungeons_n_kotlin.classes.modifiers.AttributesModifier
 import dungeons_n_kotlin.interfaces.breed.IBreed
 
-class Character(var name: String, var breed: IBreed, var attributes: Attributes) {
-    init {
-        addAttributesBonus()
-    }
+class Character {
+    lateinit var name: String
 
-    private fun addAttributesBonus() {
-        this.attributes.strength += this.breed.getStrength()
-        this.attributes.dexterity += this.breed.getDexterity()
-        this.attributes.constitution += this.breed.getConstitution()
-        this.attributes.intelligence += this.breed.getIntelligence()
-        this.attributes.wisdom += this.breed.getWisdom()
-        this.attributes.charisma += this.breed.getCharisma()
-    }
+    lateinit var breed: IBreed
+
+    lateinit var attributes: Attributes
+
+//    private fun addAttributesBonus() {
+//        attributes.strength += breed.getStrength()
+//        attributes.dexterity += breed.getDexterity()
+//        attributes.constitution += breed.getConstitution()
+//        attributes.intelligence += breed.getIntelligence()
+//        attributes.wisdom += breed.getWisdom()
+//        attributes.charisma += breed.getCharisma()
+//    }
 
     fun listAttributes(): String {
         return """
             Name: $name
-            Strength: ${attributes.strength}
-            Dexterity: ${attributes.dexterity}
-            Constitution: ${attributes.constitution}
-            Intelligence: ${attributes.intelligence}
-            Wisdom: ${attributes.wisdom}
-            Charisma: ${attributes.charisma}
+            Breed: ${breed.javaClass.simpleName}
+            
+            VALUE // BREED BONUS // MODIFIER
+            
+            Strength: ${attributes.strength} (+${breed.getStrength()}) (+${AttributesModifier.calculateAttributeModifier(attributes.strength)})
+            Dexterity: ${attributes.dexterity} (+${breed.getDexterity()}) (+${AttributesModifier.calculateAttributeModifier(attributes.dexterity)})
+            Constitution: ${attributes.constitution} (+${breed.getConstitution()}) (+${AttributesModifier.calculateAttributeModifier(attributes.constitution)})
+            Intelligence: ${attributes.intelligence} (+${breed.getIntelligence()}) (+${AttributesModifier.calculateAttributeModifier(attributes.intelligence)})
+            Wisdom: ${attributes.wisdom} (+${breed.getWisdom()}) (+${AttributesModifier.calculateAttributeModifier(attributes.wisdom)})
+            Charisma: ${attributes.charisma} (+${breed.getCharisma()}) (+${AttributesModifier.calculateAttributeModifier(attributes.charisma)})
         """.trimIndent()
     }
 }
