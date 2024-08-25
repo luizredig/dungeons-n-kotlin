@@ -23,6 +23,7 @@ fun main(args: Array<String>) {
         println("MENU")
         println("[1] Create character")
         println("[2] Exit program")
+        println()
 
         val option = readlnOrNull()
         println()
@@ -31,6 +32,9 @@ fun main(args: Array<String>) {
             "1" -> {
                 val c = createCharacter()
                 c.listAttributes()
+                println()
+                println("Returning to the menu.")
+                println()
             }
 
             "2" -> isGameRunning = false
@@ -38,12 +42,14 @@ fun main(args: Array<String>) {
     } while (isGameRunning)
 
     println("Program just finished.")
+    println()
 }
 
 fun createCharacter(): Character {
     val character = Character()
 
     println("Enter the name for the character:")
+    println()
     character.name = readln()
     println()
 
@@ -51,6 +57,7 @@ fun createCharacter(): Character {
 
     do {
         println("Select the breed for the character:")
+        println()
 
         val breeds = arrayOf(
             "Dragonborn",
@@ -172,6 +179,7 @@ fun createCharacter(): Character {
     do {
         println("Distribute the points")
         println("Points available: $availablePoints")
+        println()
 
         println(character.listAttributes())
         println()
@@ -189,7 +197,9 @@ fun createCharacter(): Character {
             println("[${index + 1}] - $attribute")
         }
 
-        println("[0] to exit.")
+        println()
+        println("[0] - Confirm")
+        println()
 
         var selectedAttribute: String
 
@@ -237,8 +247,8 @@ fun createCharacter(): Character {
 
                 val value = mutableProperty.get(character.attributes)
 
-                if (value + pointsToAdd <= 15) {
-                    if (pointsToAdd > 0) {
+                if (pointsToAdd > 0) {
+                    if (value + pointsToAdd <= 15) {
                         for (i in 1..pointsToAdd) {
                             val cost =
                                 AttributesModifier.calculateAttributeCost(mutableProperty.get(character.attributes) + 1)
@@ -247,10 +257,30 @@ fun createCharacter(): Character {
                                 availablePoints -= cost
                                 mutableProperty.set(character.attributes, mutableProperty.get(character.attributes) + 1)
                             }
+                            else {
+                                println("You do not have enough points remaining.")
+                                println()
+                            }
                         }
+                    } else {
+                        println("You cannot add more than 15 points to each property.")
+                        println()
                     }
-                } else {
-                    println("You can't add more points to ${mutableProperty.name}")
+                } else if (pointsToAdd < 0) {
+                    if (value + pointsToAdd >= 8) {
+                        for (i in 1..-pointsToAdd) {
+                            val refund =
+                                AttributesModifier.calculateAttributeCost(mutableProperty.get(character.attributes))
+
+                            if (mutableProperty.get(character.attributes) > 0) {
+                                availablePoints += refund
+                                mutableProperty.set(character.attributes, mutableProperty.get(character.attributes) - 1)
+                            }
+                        }
+                    } else {
+                        println("The minimum for each attribute is 8 points.")
+                        println()
+                    }
                 }
             }
         }
